@@ -8,14 +8,16 @@
 
 > 本仓库只验证技术机制，不判断任何特定截图真假，也不认定任何具体人员实施了某项操作。
 
-## 当前可复现实验
+## 可复现实验
 
-本次提交故意使用相反的两个姓名：
+两个连续提交故意使用相反的姓名组合：
 
-| 位置 | 演示值 | 来源 |
+| 版本 | Git 提交作者 | Java 源码“创建人” |
 | --- | --- | --- |
-| Git 提交作者 | `张三2026` | 创建提交时的 Git 身份字段 |
-| Java 源码“创建人” | `李四9527` | `AuthenticityDemo.java` 中可编辑的普通文字 |
+| 根提交 `416966f…` | `张三2026` | `李四9527` |
+| 当前提交 `HEAD` | `李四9527` | `张三2026` |
+
+前后两个版本将姓名对调，直接证明两个位置并不互相校验。Git 提交作者来自创建提交时的身份字段；源码“创建人”来自 `AuthenticityDemo.java` 中可编辑的普通文字。
 
 这两个姓名都是虚构的演示名称，邮箱使用保留的 `.invalid` 域名，不冒充真实账号。
 
@@ -33,6 +35,7 @@ bash scripts/verify.sh
 mvn clean package
 java -jar target/verify-authenticity-1.0.0.jar
 git cat-file -p HEAD
+git log -p -- src/main/java/com/example/verify/AuthenticityDemo.java
 ```
 
 `git cat-file -p HEAD` 直接读取 Git 提交对象，其中能看到 `author` 和 `committer` 原始字段；Java 程序同时打印源码中手写的“创建人”。
@@ -46,4 +49,3 @@ git cat-file -p HEAD
 - [GitHub：Git 提交姓名不等于 GitHub 用户名，且可以使用任意文字](https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git)
 - [Git：`GIT_AUTHOR_NAME`、`GIT_COMMITTER_NAME` 可覆盖配置](https://git-scm.com/docs/git)
 - [GitHub：签名验证状态用于提高对提交身份的可信度](https://docs.github.com/en/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)
-

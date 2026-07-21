@@ -19,11 +19,11 @@
 
 Git 提交对象保存 `author` 和 `committer` 的姓名、邮箱与时间。创建提交时，可以通过 `user.name`、`user.email` 或 `GIT_AUTHOR_NAME`、`GIT_COMMITTER_NAME` 等环境变量填写这些字段。
 
-本演示提交使用虚构身份：
+当前演示提交使用虚构身份：
 
 ```text
-author_name=张三2026
-author_email=zhangsan2026@example.invalid
+author_name=李四9527
+author_email=lisi9527@example.invalid
 ```
 
 `.invalid` 是专门用于无效示例的域名，这个邮箱不对应真实收件人。
@@ -33,10 +33,19 @@ author_email=zhangsan2026@example.invalid
 `src/main/java/com/example/verify/AuthenticityDemo.java` 中的：
 
 ```java
-创建人：李四9527
+创建人：张三2026
 ```
 
 只是文件内容，与类名、变量名和普通注释一样可以编辑。Git 或 GitHub 不会根据这行文字自动验证一个人的真实身份。
+
+### 3. 两个版本的交叉对照
+
+| 版本 | Git 提交作者 | 源码手写创建人 |
+| --- | --- | --- |
+| 根提交 `416966f…` | `张三2026` | `李四9527` |
+| 当前提交 `HEAD` | `李四9527` | `张三2026` |
+
+同一仓库的连续版本把两个姓名对调，且每个版本都能通过 Git 原始对象和源文件复核。
 
 ## 三、现场复核步骤
 
@@ -99,4 +108,3 @@ git log --format='提交=%H%n作者=%an <%ae>%n提交者=%cn <%ce>%n签名状态
 - GitHub 文档：[设置 Git 提交姓名](https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git)
 - Git 文档：[影响提交身份的环境变量](https://git-scm.com/docs/git)
 - GitHub 文档：[提交签名验证状态](https://docs.github.com/en/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)
-
