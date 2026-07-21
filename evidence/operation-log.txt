@@ -1,0 +1,73 @@
+VERIFY-AUTHENTICITY 技术机制复现实验操作日志
+生成日期：2026-07-21
+时区：Asia/Shanghai (+08:00)
+说明：以下内容来自仓库原始 Git 对象；演示邮箱均为 .invalid 示例域名。
+范围：六轮姓名交替操作，截止提交 aa002fb59e5505e31143c1b98b29b4e9f55c8653。
+
+ROUND 1
+commit=416966f10555d78847e15616fb017095625b0127
+author=张三2026 <zhangsan2026@example.invalid>
+committer=张三2026 <zhangsan2026@example.invalid>
+date=2026-07-21T12:18:19+08:00
+signature=N
+source_created_by=李四9527
+subject=feat: 建立姓名字段可编辑性验证项目
+result=Git姓名与源码创建人不同
+
+ROUND 2
+commit=c3374b0cc26e00213c3d4f92017dc2b7a8257d8e
+author=李四9527 <lisi9527@example.invalid>
+committer=李四9527 <lisi9527@example.invalid>
+date=2026-07-21T12:18:55+08:00
+signature=N
+source_created_by=张三2026
+subject=test: 对调提交作者与源码创建人
+result=Git姓名与源码创建人不同
+
+ROUND 3
+commit=d9aea3616ec78e9c239b989e0f5c1633a5f4c96a
+author=张三2026 <zhangsan2026@example.invalid>
+committer=张三2026 <zhangsan2026@example.invalid>
+date=2026-07-21T12:25:28+08:00
+signature=N
+source_created_by=李四9527
+subject=demo: 第3轮改为张三提交李四创建
+result=Git姓名与源码创建人不同
+
+ROUND 4
+commit=7a70ecf2a2c0c93dc3f27081b46143a95f1cbbe8
+author=李四9527 <lisi9527@example.invalid>
+committer=李四9527 <lisi9527@example.invalid>
+date=2026-07-21T12:25:44+08:00
+signature=N
+source_created_by=张三2026
+subject=demo: 第4轮改为李四提交张三创建
+result=Git姓名与源码创建人不同
+
+ROUND 5
+commit=cb1769eca11979f95ded56284e4b556e7e3571ae
+author=张三2026 <zhangsan2026@example.invalid>
+committer=张三2026 <zhangsan2026@example.invalid>
+date=2026-07-21T12:25:59+08:00
+signature=N
+source_created_by=李四9527
+subject=demo: 第5轮再次由张三提交李四创建
+result=Git姓名与源码创建人不同
+
+ROUND 6
+commit=aa002fb59e5505e31143c1b98b29b4e9f55c8653
+author=李四9527 <lisi9527@example.invalid>
+committer=李四9527 <lisi9527@example.invalid>
+date=2026-07-21T12:26:16+08:00
+signature=N
+source_created_by=张三2026
+subject=demo: 第6轮再次由李四提交张三创建
+result=Git姓名与源码创建人不同
+
+复核命令：
+git log --reverse --date=iso-strict-local --format='commit=%H%nauthor=%an <%ae>%ncommitter=%cn <%ce>%ndate=%ad%nsignature=%G?%nsubject=%s%n---'
+git show <commit>:src/main/java/com/example/verify/AuthenticityDemo.java
+bash scripts/verify.sh
+
+结论边界：本日志证明本演示仓库中的六轮操作及其字段可编辑性；不证明任何既有截图真假，也不认定原事件实际操作人。
+
