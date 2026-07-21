@@ -6,20 +6,22 @@ import java.nio.charset.StandardCharsets;
 /**
  * Git 姓名字段可编辑性演示。
  *
- * <p>创建人：张三2026</p>
+ * <p>创建人：李四9527</p>
  *
  * <p>上面的“创建人”只是源码中的普通文字，可由任何有文件编辑权限的人修改，
  * 它不是 Git 或 GitHub 自动验证的身份信息。</p>
  */
 public final class AuthenticityDemo {
 
-    private static final String SOURCE_CREATED_BY = "张三2026";
+    private static final int DEMO_ROUND = 3;
+    private static final String SOURCE_CREATED_BY = "李四9527";
 
     private AuthenticityDemo() {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("=== Git / GitHub 姓名字段可编辑性验证 ===");
+        System.out.println("演示操作轮次=" + DEMO_ROUND);
         System.out.println("源码中手工填写的创建人=" + SOURCE_CREATED_BY);
         System.out.println();
         System.out.println("当前提交对象中保存的身份字段：");
