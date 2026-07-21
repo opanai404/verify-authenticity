@@ -29,6 +29,8 @@
 
 完整 SHA、时间、作者、提交者、签名状态和源码创建人见 [`evidence/operation-log.txt`](evidence/operation-log.txt)。
 
+实际终端与 GitHub 页面截图、截取时间和 SHA-256 校验值见 [`evidence/SCREENSHOTS.md`](evidence/SCREENSHOTS.md)。
+
 ## 一键运行
 
 要求：JDK 21、Maven、Git。

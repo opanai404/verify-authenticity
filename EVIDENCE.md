@@ -60,6 +60,8 @@ author_email=lisi9527@example.invalid
 
 同一仓库的六轮操作反复把两个姓名对调，且每个版本都能通过 Git 原始对象和源文件复核。完整机器可读日志见 [`evidence/operation-log.txt`](evidence/operation-log.txt)。
 
+实际终端日志、GitHub 提交历史、GitHub 当前 Java 文件截图及其 SHA-256 校验值见 [`evidence/SCREENSHOTS.md`](evidence/SCREENSHOTS.md)。
+
 GitHub 在线提交页面：
 
 - [`416966f…`：Git 作者“张三2026”，源码创建人“李四9527”](https://github.com/opanai404/verify-authenticity/commit/416966f10555d78847e15616fb017095625b0127)
